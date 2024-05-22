@@ -1,1 +1,1 @@
-alert("Testing!")
+import './style.css'
