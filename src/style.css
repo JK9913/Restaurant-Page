@@ -67,13 +67,19 @@ header>h1 {
     margin-top: 2rem;
     width: 90%;
     height: 100%;
-    border: 2px solid black;
+    border: 2px solid rgba(255, 255, 255, 0.447);
     border-radius: 10px;
-    background-color: rgba(245, 245, 245, 0.509);
+    background-color: #794f30c6;
 }
 
 .title {
     font-family: fantasy;
+}
+
+.titleContent {
+    font-size: 3rem;
+    font-weight: bold;
+    color: rgba(142, 224, 147, 0.807)
 }
 
 .contentText {
@@ -81,5 +87,9 @@ header>h1 {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+}
+
+.contentText > p {
+    margin: .5rem;
 }
 
