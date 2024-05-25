@@ -1,9 +1,14 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { default: createContent } = require('./src/createContent');
+const { runtime } = require('webpack');
 
 module.exports = {
     mode: 'development',
-  entry: './src/index.js',
+  entry: {
+    index: './src/index.js',
+    createContent: './src/createContent.js',
+  },
     devServer : {
         static: './dist',
     },
@@ -14,8 +19,12 @@ module.exports = {
     }),
     ],
   output: {
-    filename: 'main.js',
+    filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
+    clean: true,
+  },
+  optimization: {
+    runtimeChunk: 'single',
   },
   module: {
     rules: [
