@@ -1,14 +1,17 @@
 export default function createContent() {
     const parentSelector = document.querySelector('#content');
 
+    
     const divTitle = createDivAndClass('title');
     const divContentText = createDivAndClass('contentText');
     
+
     const H1divTitle = document.createElement('h1');
     H1divTitle.classList.add('titleContent');
     H1divTitle.textContent = 'Savory Garden';
     console.log("before appending child H1DivTitle to divTitle");
     divTitle.appendChild(H1divTitle);
+
 
     // Creates the texts that will be appended to the divContentText
     const collectionOfText = ['Savory garden offers an exquisite dining experience, nestled in a lush, botanical setting that',
@@ -17,6 +20,7 @@ export default function createContent() {
     'guests to savor every bite in an ambiance of natural elegance and tranquility.'
     ];
     console.log("After creating collectionOfText");
+
 
     // Creates the p-elements and appends them to the divContentText
     createPs(...collectionOfText).forEach(p => {
