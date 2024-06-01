@@ -1,13 +1,18 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { default: createContent } = require('./src/createContent');
-const { runtime } = require('webpack');
+import path from 'path';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import { fileURLToPath } from 'url';
 
-module.exports = {
+//import { runtime } from 'webpack';
+
+// Resolve __dirname and __filename for ES module scope
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+export default{
     mode: 'development',
   entry: {
     index: './src/index.js',
-    createContent: './src/createContent.js',
+    createContent: './src/createContent.mjs',
   },
     devServer : {
         static: './dist',
@@ -35,7 +40,17 @@ module.exports = {
         {
             test: /\.(png|svg|jpg|jpeg|gif)$/i,
             type: 'asset/resource',
-        }
+        },
+        {
+          test: /\.js$/,
+          exclude: /node_modules/,
+          use: {
+            loader: 'babel-loader',
+          },
+        },
     ],
+  },
+  resolve: {
+    extensions: ['.js', '.mjs'],
   },
 };

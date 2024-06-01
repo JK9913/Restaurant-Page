@@ -1,5 +1,5 @@
 import './style.css'
-import createContent from './createContent.js'
+import createContent from './createContent.mjs'
 
 createContent();
 
