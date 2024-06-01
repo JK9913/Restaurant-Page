@@ -2,8 +2,6 @@ import path from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import { fileURLToPath } from 'url';
 
-//import { runtime } from 'webpack';
-
 // Resolve __dirname and __filename for ES module scope
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -14,6 +12,8 @@ export default{
     index: './src/index.js',
     createContent: './src/createContent.mjs',
   },
+  devtool: 'inline-source-map',
+  
     devServer : {
         static: './dist',
     },
